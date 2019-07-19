@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cocktails</ion-title>
+    <ion-button (click)="goBack()" slot="start">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="addDrink()" slot="end">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let i of data.keypass">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>{{ i.name }}</ion-label>
+        <ion-icon slot="end" name="key"></ion-icon>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

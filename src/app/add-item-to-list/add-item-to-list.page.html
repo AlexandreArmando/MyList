@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Add to cart</ion-title>
+      <ion-buttons slot="end">
+        <ion-button type="submit" color="primary" (click)="addToCart(f)">Add</ion-button>
+       </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <form #f="ngForm" (ngSubmit)="addToCart(f)" novalidate>
+      <ion-item>
+        <ion-label>Object type</ion-label>
+        <ion-select placeholder="Select One" name="type" ngModel required>
+          <ion-select-option value="s">Surgelé</ion-select-option>
+          <ion-select-option value="f">Frais</ion-select-option>
+          <ion-select-option value="b">Boisson</ion-select-option>
+          <ion-select-option value="v">Fruit/Légumes</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="name" ngModel required placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" name="qty" ngModel required placeholder="Quantity"></ion-input>
+      </ion-item>
+    </form>
+  </ion-content>
+  

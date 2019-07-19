@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>The List</ion-title>
+    <ion-button href="/" slot="start">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button href="/add-item-to-list" slot="end">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list #myList>
+    <ion-item-sliding *ngFor="let item of items">
+    <ion-item *ngIf="item.type == 's'" color="secondary">
+          <ion-label>{{ item.name }}</ion-label>
+          <ion-label>{{ item.qty }}</ion-label>
+          <ion-checkbox></ion-checkbox>
+    </ion-item>
+    
+    <ion-item *ngIf="item.type == 'f'" color="tertiary">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-label>{{ item.qty }}</ion-label>
+      <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="item.type == 'b'" color="warning">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-label>{{ item.qty }}</ion-label>
+      <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="item.type == 'v'" color="success">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-label>{{ item.qty }}</ion-label>
+      <ion-checkbox></ion-checkbox>
+      </ion-item>
+
+      <ion-item-options side="end">
+          <ion-item-option (click)="deleteItem(item)" color="danger">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
