@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-a-soft</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #f="ngForm" (ngSubmit)="addIngredient(f)">
+  <ion-list>
+    <ion-list-header>Type</ion-list-header>
+    <ion-segment name="type" (ionChange)="segmentChanged($event)">
+        <ion-segment-button *ngFor="let softType of softTypes" value="{{ softType }}">
+          <ion-label>{{ softType }}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>{{ softType }}</ion-list-header>
+    <ion-item>
+      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" *ngIf="softType == 'Soda'">
+        	<ion-select-option *ngFor="let soda of sodas" value="{{ soda }}" name="soda">{{ soda }}</ion-select-option>
+      </ion-select>
+      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" *ngIf="softType == 'Fruit juice'">
+        	<ion-select-option *ngFor="let fruitJuice of fruitJuices" value="{{ fruitJuice }}" name="fruitJuice">{{ fruitJuice }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-input type="number" placeholder="Quantity" class="righted"></ion-input>
+    <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One">
+      <ion-select-option value="mL">Millilitre (ml)</ion-select-option>
+      <ion-select-option value="cL">Centilitre (cl)</ion-select-option>
+      <ion-select-option value="L">Litre (l)</ion-select-option>
+      <ion-select-option value="cc">Cuillière à café (cc)</ion-select-option>
+      <ion-select-option value="cs">Cuillière à soupe (cs)</ion-select-option>
+    </ion-select>
+  </ion-item>
+</form>
+</ion-content>

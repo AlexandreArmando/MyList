@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Keypass</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="submit" color="primary" (click)="addToKeys(f)">Add</ion-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="addToKeys(f)" novalidate>
+    <ion-item>
+      <ion-input type="text" name="name" ngModel required placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" name="login" ngModel required placeholder="Login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" name="pwd" ngModel required placeholder="Password"></ion-input>
+    </ion-item>
+    
+  </form>
+</ion-content>

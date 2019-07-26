@@ -1,23 +1,27 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title>My Keys</ion-title>
-    <ion-button (click)="goBack()" slot="start">
+    <ion-button href="/" slot="start" fill="clear" color="light">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
-    <ion-button (click)="addKeypass()" slot="end">
+    <ion-button href="/add-keypass" slot="end" fill="clear" color="light">
       <ion-icon slot="icon-only" name="add"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list *ngFor="let i of data.keypass">
-      <ion-item-sliding>
+    <ion-list #myKey>
+      <ion-item-sliding *ngFor="let keypass of keypasss">
         <ion-item>
-          <ion-label>{{ i.name }}</ion-label>
-          <ion-icon slot="end" name="key"></ion-icon>
-          <ion-checkbox></ion-checkbox>
+          <ion-label>{{ keypass.name }}</ion-label>
+          <ion-button (click)="showKey(keypass)">
+            <ion-icon slot="end" name="key"></ion-icon>
+          </ion-button>
         </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteKeypass(keypass)" color="danger">Delete</ion-item-option>
+        </ion-item-options>
       </ion-item-sliding>
     </ion-list>
 </ion-content>

@@ -11,5 +11,8 @@ export class TodosPage implements OnInit {
 
   ngOnInit() {
   }
+  addTodo() {
+    
+  }
 
 }

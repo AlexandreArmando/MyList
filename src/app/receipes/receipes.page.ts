@@ -11,5 +11,8 @@ export class ReceipesPage implements OnInit {
 
   ngOnInit() {
   }
+  addReceipe() {
+    
+  }
 
 }

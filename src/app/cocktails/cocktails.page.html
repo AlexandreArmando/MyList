@@ -1,21 +1,22 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>cocktails</ion-title>
-    <ion-button (click)="goBack()" slot="start">
+    <ion-button href="/" slot="start" fill="clear" color="light">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
-    <ion-button (click)="addDrink()" slot="end">
+    <ion-button href="/add-cocktail" slot="end" fill="clear" color="light">
       <ion-icon slot="icon-only" name="add"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let i of data.keypass">
-    <ion-item-sliding>
+  <ion-list #mylist>
+    <ion-item-sliding *ngFor="let cocktail of cocktails">
       <ion-item>
-        <ion-label>{{ i.name }}</ion-label>
-        <ion-icon slot="end" name="key"></ion-icon>
+        <ion-label>name</ion-label>
+        <ion-icon *ngIf="cocktail.type == 'softDrink'" slot="end" name="flash-off"></ion-icon>
+        <ion-icon *ngIf="cocktail.type == 'alcoholDrink'" slot="end" name="flash"></ion-icon>
         <ion-checkbox></ion-checkbox>
       </ion-item>
     </ion-item-sliding>
